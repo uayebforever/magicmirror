@@ -1,0 +1,16 @@
+body {
+  zoom: 200%;
+  text-shadow: 0 0 15px black;
+}
+
+.dimmed {
+  color: #fff;
+}
+
+.normal {
+  color: #fff;
+}
+
+.bright {
+  color: #fff;
+}

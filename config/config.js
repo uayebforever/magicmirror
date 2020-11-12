@@ -55,37 +55,6 @@ var config = {
 				showMoonTimes: true
 			}
 		},
-		// {
-		// 	module: "calendar",
-		// 	header: "US Holidays",
-		// 	position: "top_left",
-		// 	config: {
-		// 		calendars: [
-		// 			{
-		// 				symbol: "calendar-check",
-		// 				url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"					}
-		// 		]
-		// 	}
-		// },
-		{
-			module: "currentweather",
-			position: "top_right",
-			config: {
-				location: "New York",
-				locationID: "", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				appid: "YOUR_OPENWEATHER_API_KEY"
-			}
-		},
-		{
-			module: "weatherforecast",
-			position: "top_right",
-			header: "Weather Forecast",
-			config: {
-				location: "New York",
-				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				appid: "YOUR_OPENWEATHER_API_KEY"
-			}
-		},
 		{
 			module: "newsfeed",
 			position: "bottom_bar",
@@ -102,16 +71,20 @@ var config = {
 				broadcastNewsUpdates: true
 			}
 		},
+		// {
+    	// 	module: 'MMM-BackgroundSlideshow',
+		//     position: 'fullscreen_below',
+		//     config: {
+		//     	imagePaths: ['modules/MMM-BackgroundSlideshow/Slideshow/'],
+      	// 		transitionImages: false,
+      	// 		slideshowSpeed: 1800000,
+      	// 		randomizeImageOrder: true,
+    	// 	},
+  		// },
 		{
-    		module: 'MMM-BackgroundSlideshow',
-		    position: 'fullscreen_below',
-		    config: {
-		    	imagePaths: ['modules/MMM-BackgroundSlideshow/Slideshow/'],
-      			transitionImages: false,
-      			slideshowSpeed: 1800000,
-      			randomizeImageOrder: true,
-    		},
-  		},
+			module: "Greenhouse",
+			position: "bottom_left",
+		}
 	]
 };
 

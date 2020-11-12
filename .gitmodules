@@ -1,3 +1,6 @@
 [submodule "modules/MMM-BackgroundSlideshow"]
 	path = modules/MMM-BackgroundSlideshow
 	url = https://github.com/uayebforever/MMM-BackgroundSlideshow.git
+[submodule "modules/MMM-Chart"]
+	path = modules/MMM-Chart
+	url = https://github.com/uayebforever/MMM-Chart.git

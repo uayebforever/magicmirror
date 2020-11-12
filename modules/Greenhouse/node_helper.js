@@ -5,15 +5,17 @@ module.exports = NodeHelper.create({
 	start: function () {
 		console.log("Greenhouse helper started...");
 	},
-	getData: function (data) {
+	getData: function (junk) {
 		var self = this;
-		request({ url: data.url, method: "GET" }, function (error, response, body) {
+		var result;
+		var theurl = "http://localhost:5000/temp";
+		request({ url: theurl, method: "GET" }, function (error, response, body) {
 			if (!error && response.statusCode === 200) {
 				//console.log(JSON.stringify(data));
-				data.body = body;
-				self.sendSocketNotification("GREENHOUSE_DATA_RESULT", data);
+				result = body;
+				self.sendSocketNotification("GREENHOUSE_DATA_RESULT", result);
 			} else {
-				console.log("MMM-Chart: The URL is not correct...");
+				console.log("Greenhouse: The URL is not correct..." + theurl);
 			}
 		});
 	},

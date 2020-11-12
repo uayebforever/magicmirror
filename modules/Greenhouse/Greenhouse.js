@@ -1,5 +1,3 @@
-var request = require("request");
-
 Module.register("Greenhouse", {
 	// Default module config.
 	defaults: {
@@ -18,7 +16,7 @@ Module.register("Greenhouse", {
 
 		desc.innerHTML = "Greenhouse";
 
-		temp.innerHTML = this.temp;
+		temp.innerHTML = this.temp + "°C";
 
 		wrapper.appendChild(temp);
 		wrapper.appendChild(desc);
@@ -30,25 +28,27 @@ Module.register("Greenhouse", {
 		var self = this;
 		this.temp = 0;
 		setInterval(function () {
-			self.getData(this.config);
-		}, 10000); //perform every 1000 milliseconds.
+			self.getData();
+		}, 1000); //perform every 1000 milliseconds.
 	},
 
 	// Request the current temperature data.
-	getData: function (data) {
-		Log.warn("Requesting teemps");
-		this.sendSocketNotification("GET_GREENHOUSE_DATA", data);
+	getData: function () {
+		// Log.warn("Requesting teemps");
+		this.sendSocketNotification("GET_GREENHOUSE_DATA", this.config);
 	},
 
 	socketNotificationReceived: function (notification, payload) {
-		if (notification === "GRAPH_DATA_RESULT") {
+		Log.warn(notification);
+		if (notification === "GREENHOUSE_DATA_RESULT") {
 			// Parsing the JSON data to an array.
-			payload = JSON.parse(payload.body);
+			// payload = JSON.parse(payload.body);
 
 			// Show it all!
-			Log.warn("Parsed payload body: " + JSON.stringify(payload));
+			Log.warn("Parsed greenhouse temps: " + JSON.stringify(payload));
 
 			this.temp = payload;
+			this.updateDom();
 		}
 	}
 });

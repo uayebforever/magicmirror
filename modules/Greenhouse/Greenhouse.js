@@ -15,10 +15,10 @@ Module.register("Greenhouse", {
 			var tempWrapper = document.createElement("span");
 			tempWrapper.style = "display: inline-block; padding-right: 30px;";
 			var temp = document.createElement("div");
-			temp.className = "large bright";
+			temp.className = "medium bright";
 			temp.innerHTML = value;
 			var desc = document.createElement("div");
-			desc.className = "medium dimmed";
+			desc.className = "light small dimmed";
 			desc.innerHTML = key;
 			tempWrapper.appendChild(temp);
 			tempWrapper.appendChild(desc);

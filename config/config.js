@@ -71,16 +71,16 @@ var config = {
 				broadcastNewsUpdates: true
 			}
 		},
-		// {
-    	// 	module: 'MMM-BackgroundSlideshow',
-		//     position: 'fullscreen_below',
-		//     config: {
-		//     	imagePaths: ['modules/MMM-BackgroundSlideshow/Slideshow/'],
-      	// 		transitionImages: false,
-      	// 		slideshowSpeed: 1800000,
-      	// 		randomizeImageOrder: true,
-    	// 	},
-  		// },
+		{
+    		module: 'MMM-BackgroundSlideshow',
+		    position: 'fullscreen_below',
+		    config: {
+		    	imagePaths: ['modules/MMM-BackgroundSlideshow/Slideshow/'],
+      			transitionImages: false,
+      			slideshowSpeed: 1800000,
+      			randomizeImageOrder: true,
+    		},
+  		},
 		{
 			module: "Greenhouse",
 			position: "bottom_left",

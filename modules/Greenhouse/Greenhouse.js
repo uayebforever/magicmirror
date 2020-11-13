@@ -8,28 +8,32 @@ Module.register("Greenhouse", {
 	// Override dom generator.
 	getDom: function () {
 		var wrapper = document.createElement("div");
-		var temp = document.createElement("div");
-		var desc = document.createElement("div");
-
-		temp.className = "large bright";
-		desc.className = "medium dimmed";
-
-		desc.innerHTML = "Greenhouse";
-
-		temp.innerHTML = this.temp + "°C";
-
-		wrapper.appendChild(temp);
-		wrapper.appendChild(desc);
+		Log.info(this.temps);
+		for (const [key, value] of Object.entries(this.temps)) {
+			Log.info(key);
+			Log.info(value);
+			var tempWrapper = document.createElement("span");
+			tempWrapper.style = "display: inline-block; padding-right: 30px;";
+			var temp = document.createElement("div");
+			temp.className = "large bright";
+			temp.innerHTML = value;
+			var desc = document.createElement("div");
+			desc.className = "medium dimmed";
+			desc.innerHTML = key;
+			tempWrapper.appendChild(temp);
+			tempWrapper.appendChild(desc);
+			wrapper.appendChild(tempWrapper);
+		}
 		return wrapper;
 	},
 
 	// register update on startup
 	start: function () {
 		var self = this;
-		this.temp = 0;
+		this.temps = { Greenhouse: 0, "Front Porch": 0 };
 		setInterval(function () {
 			self.getData();
-		}, 1000); //perform every 1000 milliseconds.
+		}, 10000); //perform every 1000 milliseconds.
 	},
 
 	// Request the current temperature data.
@@ -47,7 +51,7 @@ Module.register("Greenhouse", {
 			// Show it all!
 			Log.warn("Parsed greenhouse temps: " + JSON.stringify(payload));
 
-			this.temp = payload;
+			this.temps = JSON.parse(payload);
 			this.updateDom();
 		}
 	}

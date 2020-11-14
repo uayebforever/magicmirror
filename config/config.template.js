@@ -30,7 +30,8 @@ var config = {
 	language: "en",
 	logLevel: ["INFO", "LOG", "WARN", "ERROR"],
 	timeFormat: 24,
-	units: "metric",
+	// Units of either "imperial" or "metric"
+	units: "imperial",
 	// serverOnly:  true/false/"local" ,
 	// local for armv6l processors, default
 	//   starts serveronly and then starts chrome browser
@@ -53,6 +54,25 @@ var config = {
 				lon: -107.024,
 				showSunTimes: true,
 				showMoonTimes: true
+			}
+		},
+		{
+			module: "currentweather",
+			position: "top_right",
+			config: {
+				location: "Pagosa Springs",
+				locationID: "5433784", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
+				appid: "${OPENWEATHER_API_KEY}"
+			}
+		},
+		{
+			module: "weatherforecast",
+			position: "top_right",
+			header: "Weather Forecast",
+			config: {
+				location: "Pagosa Springs",
+				locationID: "5433784", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
+				appid: "${OPENWEATHER_API_KEY}"
 			}
 		},
 		{

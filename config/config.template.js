@@ -83,7 +83,12 @@ var config = {
 					{
 						title: "New York Times",
 						url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+					},
+					{
+						title: "The Guardian",
+						url: "https://www.theguardian.com/us/rss"
 					}
+
 				],
 				showSourceTitle: true,
 				showPublishDate: true,
